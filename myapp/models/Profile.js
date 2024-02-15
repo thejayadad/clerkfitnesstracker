@@ -27,7 +27,6 @@ const profileSchema = new mongoose.Schema({
   activityLevel: {
     type: String,
     enum: ['sedentary', 'lightly active', 'moderately active', 'very active', 'extra active'],
-    required: true
   },
 });
 

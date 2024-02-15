@@ -1,10 +1,23 @@
 'use client'
 import {useState} from "react";
 import SubmitButton from "../Buttons/SubmitButton";
+import grabUsername from "@/lib/action";
+import { redirect } from "next/navigation";
 
 const UsernameForm = ({desiredUsername}) => {
+    const [taken,setTaken] = useState(false);
+    async function handleSubmit(formData) {
+      const result = await grabUsername(formData);
+  
+      setTaken(result === false);
+      if (result) {
+        redirect('/account?created='+formData.get('username'));
+      }
+    }
   return (
-    <form>
+    <form
+    action={handleSubmit}
+    >
         <input
          defaultValue={desiredUsername}
          type="text"
