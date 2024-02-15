@@ -13,8 +13,8 @@ export default async function grabUsername(formData) {
       } else {
         const session = await getServerSession(authOptions);
         return await Profile.create({
-          uri:username,
-          username:session?.user?.email,
+          username: username,
+          owner:session?.user?.email,
         });
       }
 

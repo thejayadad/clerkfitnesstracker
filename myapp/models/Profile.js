@@ -1,10 +1,17 @@
-import mongoose from "mongoose";
+// profile.js
 
-const profileSchema = new mongoose.Schema({
+import mongoose from 'mongoose';
+
+const { Schema } = mongoose;
+
+const profileSchema = new Schema({
   username: {
     type: String,
     unique: true,
     required: true
+  },
+  owner: {
+    type: String,
   },
   age: {
     type: Number,
@@ -30,6 +37,6 @@ const profileSchema = new mongoose.Schema({
   },
 });
 
-const Profile = mongoose.model('Profile', profileSchema);
+const Profile = mongoose.models.Profile || mongoose.model('Profile', profileSchema);
 
-module.exports = Profile;
+export default Profile;

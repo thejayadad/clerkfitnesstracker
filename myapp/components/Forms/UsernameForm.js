@@ -19,10 +19,16 @@ const UsernameForm = ({desiredUsername}) => {
     action={handleSubmit}
     >
         <input
+        name='username'
          defaultValue={desiredUsername}
          type="text"
          className="px-4 py-2 w-56 border mb-2 rounded focus:outline-none focus:border-primary"
         />
+        {taken && (
+          <div className="bg-red-200 border border-secondary p-2 mb-2 text-center">
+            This username is taken
+          </div>
+        )}
         <SubmitButton>
             <span>Grab Your UserName</span>
         </SubmitButton>
