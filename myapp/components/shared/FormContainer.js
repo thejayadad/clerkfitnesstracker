@@ -3,7 +3,7 @@ import { FaDumbbell } from 'react-icons/fa'
 
 const FormContainer = ({children}) => {
   return (
-    <div className="flex items-center mx-auto max-w-screen-md justify-center">
+    <div className="flex flex-col items-center mx-auto max-w-screen-md justify-center">
         <span className="mr-4">
         <FaDumbbell className="text-3xl" />
       </span>
