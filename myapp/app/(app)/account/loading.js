@@ -16,13 +16,18 @@ const loading = () => {
     return () => clearInterval(interval);
   }, []);
   return (
-    <CircularProgress
+    <div className='min-h-screen flex items-center justify-center'>
+      
+      <CircularProgress
     aria-label="Loading..."
     size="lg"
     value={value}
     color="warning"
     showValueLabel={true}
-  />
+
+/>
+    </div>
+  
   )
 }
 

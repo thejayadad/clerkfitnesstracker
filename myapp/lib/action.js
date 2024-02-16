@@ -5,7 +5,7 @@ import { getServerSession } from "next-auth";
 import connectDB from "./db";
 import Profile from "@/models/Profile";
 
-export async function grabUsername(formData) {
+export default async function grabUsername(formData) {
     const username = formData.get('username');
     await connectDB();
     const existingPageDoc = await Profile.findOne({ uri: username });

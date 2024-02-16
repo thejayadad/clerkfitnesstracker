@@ -46,7 +46,7 @@ const AccountPage = async ({ searchParams }) => {
         <div className="h-full p-4 space-y-2 flex 
         justify-center"
         style={{
-            marginTop: '-100px'
+            marginTop: '-50px'
         }}
         >
         <FormContainer
@@ -84,36 +84,7 @@ const AccountPage = async ({ searchParams }) => {
             defaultValue={profile.weight}
             />
             </div>
-            <div className='flex w-full'>
-            <div className="flex items-center gap-4 justify-center">
-
-            <label className="text-sm">Gender:</label>
-            <div className="flex items-center gap-2">
-            <input
-                 type="radio"
-                 name="gender"
-                 defaultValue={profile?.male || "male"}
-                 checked={profile.gender === "male"} // Check if the gender in profile is male
-
-                 className="form-radio h-4 w-4 text-primary focus:ring-primary"
-            />
-            <label htmlFor="male" className="text-sm">Male</label>
-
-            </div>
-            <div className="flex items-center gap-2">
-            <input
-                type="radio"
-                name="gender"
-                defaultValue={profile?.female || "Female"}
-                checked={profile.gender === "female"} // Check if the gender in profile is female
-                className="form-radio h-4 w-4 text-primary focus:ring-primary"
-
-                />
-            <label htmlFor="female" className="text-sm">Female</label>
-            </div>
-           </div>
-            </div>
-            <div className="relative">
+        <div className="relative">
             <select
                 className="block text-center appearance-none w-full dark:bg-gray-900 border py-3 px-4 pr-8 rounded-lg leading-tight focus:outline-none  focus:border-gray-500"
                 name="goal"
@@ -124,20 +95,7 @@ const AccountPage = async ({ searchParams }) => {
                 <option value="gain">Gain Weight</option>                
             </select>
               </div>
-              <div className='flex flex-col items-center'>
-                <label>Activity Level</label>
-                <div className='flex items-center gap-2'>
-                    <input
-                          type="checkbox"
-                          name="activityLevel"
-                          checked={profile.activityLevel === 'sedentary'}
-                          defaultValue={profile?.activityLevel || "sedentary"}
-
-
-                    />
-                </div>
-              </div>
-            <Button
+             <Button
             size="lg"
             className='text-center w-full'
             endContent={<FiPlus/>}

@@ -3,16 +3,14 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import clsx from 'clsx';
 import { FiHome, FiSettings, FiDatabase } from 'react-icons/fi';
+import {FaDumbbell,} from "react-icons/fa"
 
 
 const links = [
-  { name: 'Home', href: '/account', icon: FiHome },
+  { name: 'Workout', href: '/account/workouts', icon: FaDumbbell },
   { name: 'Stats', href: '/account/stats', icon: FiDatabase },
-  {
-    name: 'Settings',
-    href: '/account/update',
-    icon: FiSettings,
-  },
+  { name: 'Settings', href: '/account', icon: FiSettings },
+
 ];
 
 const SideNavbar = () => {
@@ -21,7 +19,7 @@ const SideNavbar = () => {
   return (
     <div className="flex h-full flex-col px-3 py-4 md:px-4">
         <Link
-        className="mb-2 flex h-20 items-end justify-start rounded-md border border:bg-gray-700 p-4 md:h-40"
+        className="mb-2 flex h-20 items-end justify-start rounded-md  p-4 md:h-40"
         href="/"
       >
         <div className="w-32 md:w-40">
@@ -36,7 +34,7 @@ const SideNavbar = () => {
           key={link.name}
           href={link.href}
           className={clsx(
-            'flex h-[48px] grow items-center justify-center gap-2 rounded-md dark:bg-gray-700 p-3 text-sm font-medium dark:hover:bg-secondary hover:text-white md:flex-none md:justify-start md:p-2 md:px-3',
+            'flex h-[48px] grow items-center justify-center gap-2 rounded-md dark:bg-gray-700 p-3 text-sm font-medium dark:hover:bg-secondary hover:text-black md:flex-none md:justify-start md:p-2 md:px-3',
             {
               'bg-gray-200 text-primary': pathname === link.href,
             },
