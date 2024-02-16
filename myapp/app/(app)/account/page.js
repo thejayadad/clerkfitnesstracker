@@ -44,26 +44,37 @@ const AccountPage = async ({ searchParams }) => {
 
     return (
         <div className="h-full p-4 space-y-2 flex 
+        justify-center"
         style={{
-            marginBottom: '-300px'
+            marginTop: '-100px'
         }}
-        justify-center">
+        >
         <FormContainer
 
         >
 
             {/* <h2>Welcome back, {profile.owner}!</h2> */}
         <form
-            className="space-y-8 pb-10"
+            className="space-y-8 pb-10 mt-8"
             action={updateUsername}
             >
+            <Input
+                    label="UsernName"
+                    type='text'
+                    name='username'
+                    placeholder={profile.username || "Username"}
+                    defaultValue={profile.username} 
+                    className='cursor-pointer'
+                />
             <div className='flex gap-4'>
+
             <Input
             label="Age"
             type='number'
             name='age'
             placeholder={profile.age || "Age"}
             defaultValue={profile.age}
+            className='cursor-pointer'
             />
             <Input
             label="Weight"
@@ -81,9 +92,9 @@ const AccountPage = async ({ searchParams }) => {
             <input
                  type="radio"
                  name="gender"
-                 value='male'
-                 placeholder={profile.male}
-                 defaultValue={profile?.gender || "Male"}
+                 defaultValue={profile?.male || "male"}
+                 checked={profile.gender === "male"} // Check if the gender in profile is male
+
                  className="form-radio h-4 w-4 text-primary focus:ring-primary"
             />
             <label htmlFor="male" className="text-sm">Male</label>
@@ -93,32 +104,39 @@ const AccountPage = async ({ searchParams }) => {
             <input
                 type="radio"
                 name="gender"
-                value='female'
-                placeholder={profile.female}
+                defaultValue={profile?.female || "Female"}
+                checked={profile.gender === "female"} // Check if the gender in profile is female
                 className="form-radio h-4 w-4 text-primary focus:ring-primary"
 
                 />
             <label htmlFor="female" className="text-sm">Female</label>
-            <input
-            className='bg-transparent'
-                placeholder={profile.gender || "Gender"}
-            />
             </div>
            </div>
             </div>
             <div className="relative">
             <select
-                className="block appearance-none w-full dark:bg-gray-900 border py-3 px-4 pr-8 rounded-lg leading-tight focus:outline-none  focus:border-gray-500"
+                className="block text-center appearance-none w-full dark:bg-gray-900 border py-3 px-4 pr-8 rounded-lg leading-tight focus:outline-none  focus:border-gray-500"
                 name="goal"
-            >
+                defaultValue={profile?.goal || "Goal"}
+                >
                 <option value="lose">Lose Weight</option>
                 <option value="maintain">Maintain Weight</option>
-                <option value="gain">Gain Weight</option>
+                <option value="gain">Gain Weight</option>                
             </select>
-            <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
-                <FiTarget className="h-4 w-4" />
-            </div>
-        </div>
+              </div>
+              <div className='flex flex-col items-center'>
+                <label>Activity Level</label>
+                <div className='flex items-center gap-2'>
+                    <input
+                          type="checkbox"
+                          name="activityLevel"
+                          checked={profile.activityLevel === 'sedentary'}
+                          defaultValue={profile?.activityLevel || "sedentary"}
+
+
+                    />
+                </div>
+              </div>
             <Button
             size="lg"
             className='text-center w-full'
